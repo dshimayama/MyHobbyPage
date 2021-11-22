@@ -1,0 +1,28 @@
+├── actions
+│   └── index.js（Actionを列挙（アニメAPI叩くなど,復習））
+├── components
+│   ├── Anime.js（アニメリストを作るための個々のカード）
+│   ├── NotificationSnackbar.js（通知用のSnackbar）
+│   ├── ResponsiveDrawerListItem.js（ヘッダメニュー用）
+│   ├── WithTracker.js（Google Analysticsを各ページに設定するためのラッパー）
+│   └── WrapMainContent.js（メインコンテンツ（Home、Info、Settings）のラッパー）
+├── containers
+│   ├── AnimeList.js（アニメリストを作る）
+│   ├── Home.js（/home画面）
+│   ├── Info.js（/info画面）
+│   ├── Notification.js（通知用）
+│   ├── ResponsiveDrawer.js（ヘッダメニュー＋表示画面の土台）
+│   ├── RouteRelatedBottomNavigation.js（フッターのナビゲーションボタン）
+│   ├── Settings.js（/settings画面）
+│   └── ShareDialog.js（右上シェアボタンポップアップ）
+├── reducers
+│   ├── AnimeListReducer.js（アニメ情報管理）
+│   ├── NotificationReducer.js（通知情報管理）
+│   └── index.js（reducerまとめ）
+├── utils
+│   └── actionTypes.js（Actionの種類を列挙）
+├── App.css
+├── App.js
+├── index.css
+├── index.js
+└── registerServiceWorker.js

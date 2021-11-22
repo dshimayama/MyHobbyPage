@@ -15,3 +15,12 @@ ReactDOM.render (
   </Provider>
   ,document.getElementById('root')
 )
+
+// 電卓
+// import CalculatorContainer from './containers/CalculatorContainer';
+// ReactDOM.render(
+//   <Provider store={store}>
+//     <CalculatorContainer />
+//   </Provider>,
+//   document.getElementById('root')
+// );
