@@ -1,2 +1,12 @@
+// 通知系
+export const SET_NOTIFICATION = 'SET_NOTIFICATION';
+export const CLOSE_NOTIFICATION = 'CLOSE_NOTIFICATION';
+
+// 非同期取得
+export const GET_ANIMES_REQUEST = 'GET_ANIMES_REQUEST';
+export const GET_ANIMES_SUCCESS = 'GET_ANIMES_SUCCESS';
+export const GET_ANIMES_FAILURE = 'GET_ANIMES_FAILURE';
+
+// 電卓
 export const INPUT_NUMBER = 'INPUT_NUMBER';
 export const PLUS = 'PLUS';

@@ -1,45 +1,51 @@
-// export const CHANGE_NAME = 'CHANGE_NAME';
-// export const CHANGE_STATUS = 'CHANGE_STATUS';
-// export const CHANGE_USTATUS = 'CHANGE_USTATUS';
-// export const INITIALIZE_FORM = 'INITIALIZE_FORM';
-// export const REQUEST_DATA = 'REQUEST_DATA';
-// export const RECEIVE_DATA_SUCCESS = 'RECEIVE_DATA_SUCCESS';
-// export const RECEIVE_DATA_FAILED = 'RECEIVE_DATA_FAILED';
+import * as actionTypes from '../utils/actionTypes';
+import axios from 'axios' // API取得用
 
-// export const changeName = (name) => ({
-//     type: CHANGE_NAME,
-//     name
-// })
 
-// export const changeStatus = (status) => ({
-//     type: CHANGE_STATUS,
-//     status
-// })
+// Notification操作
+export const setNotification = (variant, message) => ({
+  type: actionTypes.SET_NOTIFICATION,
+  variant: variant,
+  message: message,
+});
+export const closeNotification = (variant, message) => ({
+  type: actionTypes.CLOSE_NOTIFICATION,
+});
 
-// export const initializeForm = () => ({
-//     type: INITIALIZE_FORM
-// })
+// 非同期取得操作
+export const getAnimes = (year, cours) => {
+  return (dispatch) => {
+    dispatch(getAnimesRequest());
+    
+    // API: ShangriLa Anime API V1
+    // https://qiita.com/AKB428/items/64938febfd4dcf6ea698
+    // を利用させていただきました。素晴らしいAPI、大変感謝です。
+    // SSL化していないサイトの場合はこのAPIは両方対応しているのでhttpに修正すること。
+    return axios.get('https://api.moemoe.tokyo/anime/v1/master/' + year + '/' + cours)
+      .then(response => dispatch(getAnimesSuccess(response.data)))
+      .catch(error => dispatch(getAnimesFailure(error)))
+  };
+};
 
-// export const requestData = () => ({
-//     type: REQUEST_DATA
-// })
+export const getAnimesRequest = () => ({
+  type: actionTypes.GET_ANIMES_REQUEST,
+});
 
-// export const receiveDataSuccess = (users) => ({
-//     type: RECEIVE_DATA_SUCCESS,
-//     users
-// })
+export const getAnimesSuccess = (json) => ({
+  type: actionTypes.GET_ANIMES_SUCCESS,
+  items: json,
+});
 
-// export const receiveDataFailed = () => ({
-//     type: RECEIVE_DATA_FAILED
-// })
+export const getAnimesFailure = (error) => ({
+  type: actionTypes.GET_ANIMES_FAILURE,
+  error: error,
+});
 
 // 電卓
-import * as actionTypes from '../utils/actionTypes';
-
-export const onNumClick = (number) => ({
-  type: actionTypes.INPUT_NUMBER,
-  number,
-});
-export const onPlusClick = () => ({
-  type: actionTypes.PLUS,
-});
+// export const onNumClick = (number) => ({
+//   type: actionTypes.INPUT_NUMBER,
+//   number,
+// });
+// export const onPlusClick = () => ({
+//   type: actionTypes.PLUS,
+// });
